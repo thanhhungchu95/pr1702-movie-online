@@ -1,7 +1,7 @@
 
   <header id="header">
-    <h1 id="logo"><a href="#">MovieHunter</a></h1>
-    <div class="social"> <span>FOLLOW US ON:</span>
+    <h1 id="logo"><%=link_to (t ".movie_hunter"), root_path%></h1>
+    <div class="social"> <span><%= t".follow" %></span>
       <ul>
         <li><a class="twitter" href="#">twitter</a></li>
         <li><a class="facebook" href="#">facebook</a></li>
@@ -11,26 +11,24 @@
     </div>
     <div id="navigation">
       <ul>
-        <li><a class="active" href="#">HOME</a></li>
-        <li><a href="#">NEWS</a></li>
-        <li><a href="#">IN THEATERS</a></li>
-        <li><a href="#">COMING SOON</a></li>
-        <li><a href="#">CONTACT</a></li>
-        <li><a href="#">ADVERTISE</a></li>
-        <li><%= render 'devise/menu/registration_items' %></li>
-        <li><%= render 'devise/menu/login_items' %></li>
+        <li><a class="active"><%= link_to (t ".home") ,root_path%></a></li>
+        <li><%= link_to (t".new"), new_path%></li>
+        <li><%= link_to (t".theaters")  %></li>
+        <li><%= link_to (t".coming_soon") %></li>
+        <li><%= link_to (t".contact")%></li>
+        <li><%= link_to (t".advertise")%></li>
       </ul>
     </div>
     <div id="sub-navigation">
       <ul>
-        <li><a href="#">SHOW ALL</a></li>
-        <li><a href="#">LATEST TRAILERS</a></li>
-        <li><a href="#">TOP RATED</a></li>
-        <li><a href="#">MOST COMMENTED</a></li>
+        <li><%= link_to (t".show")%></a></li>
+        <li><%= link_to (t".lastest_trailer")%></li>
+        <li><%= link_to (t".top_rate")%></li>
+        <li><%= link_to (t".most_commented")%></li>
       </ul>
       <div id="search">
         <form action="#" method="get" accept-charset="utf-8">
-          <label for="search-field">SEARCH</label>
+          <label for="search-field"><%= t".search"%></label>
           <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
           <input type="submit" value="GO!" class="search-button" />
         </form>

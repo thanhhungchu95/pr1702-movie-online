@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516124501) do
+ActiveRecord::Schema.define(version: 20180522105157) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180516124501) do
     t.integer  "copyright_year"
     t.text     "description",    limit: 65535
     t.string   "img"
-    t.integer  "category"
+    t.integer  "num_ep"
     t.integer  "num_view"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -87,10 +87,10 @@ ActiveRecord::Schema.define(version: 20180516124501) do
 
   create_table "link_episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "episode_id"
-    t.string   "link"
+    t.string   "link",       limit: 5000
     t.integer  "quality"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["episode_id"], name: "index_link_episodes_on_episode_id", using: :btree
   end
 

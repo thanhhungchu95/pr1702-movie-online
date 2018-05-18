@@ -9,4 +9,13 @@ class Film < ApplicationRecord
 
   has_many :comments
   has_many :ratings
+
+  def comment
+  	count_cmt = comments.count
+  end
+
+  def rate
+  	rating_star = ratings.pluck(:star)
+  	rating_star.any? ? (rating_star.sum.to_f / rating_star.count) : 0
+  end
 end

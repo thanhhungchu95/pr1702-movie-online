@@ -3,187 +3,84 @@
 
   <div id="main">
     <div id="content">
-      <div class="box">
+    <div class="box">
         <div class="head">
-          <h2>LATEST TRAILERS</h2>
-          <p class="text-right"><a href="#">See all</a></p>
+          <h2><%= t".top_view"%></h2>
+          <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">X-MAN</span></span> <%= image_tag('movie1.jpg') %></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">SPIDER MAN 2</span></span> <a href="#"><%= image_tag('movie2.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">SPIDER MAN 3</span></span> <a href="#"><%= image_tag('movie3.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">VALKYRIE</span></span> <a href="#"><%= image_tag('movie4.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">GLADIATOR</span></span> <a href="#"><%=image_tag('movie5.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie last">
-          <div class="movie-image"> <span class="play"><span class="name">ICE AGE</span></span> <a href="#"><%=image_tag('movie6.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
+        <% @top_view_film.each do|f| %>
+          <div class="movie">
+            <div class="movie-image"> <span class="play"><span class="name">
+            <%= f.name %>
+            </span></span> <a href="#"><%=image_tag('movie7.jpg')%></a> </div>
+            <div class="rating">
+              <p><%= t".rating"%></p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span> </div>
+          </div>
+        <%end%>
         <div class="cl">&nbsp;</div>
       </div>
       <div class="box">
         <div class="head">
-          <h2>TOP RATED</h2>
-          <p class="text-right"><a href="#">See all</a></p>
+          <h2><%=t".lastest_trailer"%></h2>
+          <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">TRANSFORMERS</span></span> <a href="#"><%=image_tag('movie7.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">MAGNETO</span></span> <a href="#"><%=image_tag('movie8.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">KUNG FU PANDA</span></span> <%=image_tag('movie9.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">EAGLE EYE</span></span> <a href="#"><%=image_tag('movie10.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">NARNIA</span></span> <a href="#"><%=image_tag('movie11.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie last">
-          <div class="movie-image"> <span class="play"><span class="name">ANGELS &amp; DEMONS</span></span> <a href="#"><%=image_tag('movie12.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
+        <% @top_updated_film.each do |f| %>
+          <div class="movie">
+            <div class="movie-image"> <span class="play"><span class="name">
+            <%= f.name %>
+            </span></span> <%= image_tag('movie1.jpg') %></a> </div>
+            <div class="rating">
+              <p><%=t".rating"%></p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span> </div>
+          </div>
+        <% end %>
         <div class="cl">&nbsp;</div>
       </div>
       <div class="box">
         <div class="head">
-          <h2>MOST COMMENTED</h2>
-          <p class="text-right"><a href="#">See all</a></p>
+          <h2><%= t".top_rated"%></h2>
+          <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
+        <% @top_rating_film.each do|f| %>
+          <div class="movie">
+            <div class="movie-image"> <span class="play"><span class="name">
+            <%= f.name %>
+            </span></span> <a href="#"><%=image_tag('movie7.jpg')%></a> </div>
+            <div class="rating">
+              <p><%= t".rating"%></p>
+              <div class="stars">
+                <div class="stars-in"> </div>
+              </div>
+              <span class="comments">12</span> </div>
+          </div>
+        <%end%>
+        <div class="cl">&nbsp;</div>
+      </div>
+      <div class="box">
+        <div class="head">
+          <h2><%= t".most_commented"%></h2>
+          <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
+        </div>
+        <% @top_comment_film.each do |f| %>
         <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">HOUSE</span></span> <a href="#"><%=image_tag('movie13.jpg')%></a> </div>
+          <div class="movie-image"> <span class="play"><span class="name">
+          <%= f.name %>
+          </span></span> <a href="#"><%=image_tag('movie13.jpg')%></a> </div>
           <div class="rating">
-            <p>RATING</p>
+            <p><%= t".rating"%></p>
             <div class="stars">
               <div class="stars-in"> </div>
             </div>
             <span class="comments">12</span> </div>
         </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">VACANCY</span></span> <%=image_tag('movie14.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">MIRRORS</span></span> <a href="#"><%=image_tag('movie15.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">THE KINGDOM</span></span> <a href="#"><%= image_tag('movie16.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">MOTIVES</span></span> <a href="#"><%= image_tag('movie17.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
-        <div class="movie last">
-          <div class="movie-image"> <span class="play"><span class="name">THE PRESTIGE</span></span> <a href="#"><%= image_tag('movie18.jpg')%></a> </div>
-          <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
+        <% end %>
         <div class="cl">&nbsp;</div>
       </div>
     </div>
