@@ -20,5 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-
+  layouts:
+    header:
+      movie_hunter: "Movie Hunter" 
+      follow: "FOLLOW US ON:"
+      twitter: "Twitter"
+      facebook: "Facebook"
+      vimeo: "Vimeo"
+      rss: "Rss"
+      home: "HOME"
+      new: "NEW"
+      theaters: "IN THEATERS"
+      coming_soon: "COMING SOON"
+      contact: "CONTACT"
+      advertise: "ADVERTISE"
+      show: "SHOW ALL"
+      lastest_trailer: "LASTEST TRAILERS"
+      top_rate: "TOP RATED"
+      most_commented: "MOST COMMENTED"
+      search: "SEARCH"
+    footer:
+      nguon: "Copyright &copy; 2010"
+      site_name: "SiteName"
+      reserved: "- All Rights Reserved"
+      design_by: "Design by"
+      link_theme: "ChocoTemplates.com"
+  static_pages:
+    home:
+      lastest_trailer: "LASTEST TRAILERS"
+      rating: "RATING"
+      see_all: "See All"
+      top_view: "TOP VIEW"
+      most_commented: "MOST COMMENTED"
+      top_rated: "TOP RATED"
