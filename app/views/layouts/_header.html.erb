@@ -27,11 +27,11 @@
         <li><%= link_to (t".most_commented")%></li>
       </ul>
       <div id="search">
-        <form action="#" method="get" accept-charset="utf-8">
-          <label for="search-field"><%= t".search"%></label>
-          <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
-          <input type="submit" value="GO!" class="search-button" />
-        </form>
+        <%= search_form_for @q, url: search_path do |f| %>
+          <%= f.label :name_or_alter_name_cont %>
+          <%= f.search_field :name_or_alter_name_cont %>
+          <%= f.submit %>
+        <% end %>
       </div>
     </div>
   </header>

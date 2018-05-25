@@ -1,0 +1,14 @@
+<div class="box">
+  <div class="head">
+    <% if @films %>
+      <h2><%=t".result"%></h2> 
+      <p class="text-right"><%= @films.count %> ket qua </p>
+    
+      <% @films.each do |film| %>
+        <%= render partial: "films/film", locals: { film: film } %>
+      <% end %>  
+      <div class="cl">&nbsp;</div>
+      <%= will_paginate @films %>
+    <%end%>
+  </div>
+</div>

@@ -53,3 +53,5 @@ en:
       top_view: "TOP VIEW"
       most_commented: "MOST COMMENTED"
       top_rated: "TOP RATED"
+    search:
+      resurl: "RESULT"
