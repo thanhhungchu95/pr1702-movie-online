@@ -9,17 +9,7 @@
           <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
         <% @top_view_film.each do|f| %>
-          <div class="movie">
-            <div class="movie-image"> <span class="play"><span class="name">
-            <%= f.name %>
-            </span></span> <a href="#"><%=image_tag('movie7.jpg')%></a> </div>
-            <div class="rating">
-              <p><%= t".rating"%></p>
-              <div class="stars">
-                <div class="stars-in"> </div>
-              </div>
-              <span class="comments">12</span> </div>
-          </div>
+          <%=  render partial: "films/film" , locals: {film: f} %>
         <%end%>
         <div class="cl">&nbsp;</div>
       </div>
@@ -29,17 +19,7 @@
           <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
         <% @top_updated_film.each do |f| %>
-          <div class="movie">
-            <div class="movie-image"> <span class="play"><span class="name">
-            <%= f.name %>
-            </span></span> <%= image_tag('movie1.jpg') %></a> </div>
-            <div class="rating">
-              <p><%=t".rating"%></p>
-              <div class="stars">
-                <div class="stars-in"> </div>
-              </div>
-              <span class="comments">12</span> </div>
-          </div>
+          <%=  render partial: "films/film" , locals: {film: f} %>
         <% end %>
         <div class="cl">&nbsp;</div>
       </div>
@@ -49,17 +29,7 @@
           <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
         <% @top_rating_film.each do|f| %>
-          <div class="movie">
-            <div class="movie-image"> <span class="play"><span class="name">
-            <%= f.name %>
-            </span></span> <a href="#"><%=image_tag('movie7.jpg')%></a> </div>
-            <div class="rating">
-              <p><%= t".rating"%></p>
-              <div class="stars">
-                <div class="stars-in"> </div>
-              </div>
-              <span class="comments">12</span> </div>
-          </div>
+          <%=  render partial: "films/film" , locals: {film: f} %>
         <%end%>
         <div class="cl">&nbsp;</div>
       </div>
@@ -69,17 +39,7 @@
           <p class="text-right"><a href="#"><%= t".see_all"%></a></p>
         </div>
         <% @top_comment_film.each do |f| %>
-        <div class="movie">
-          <div class="movie-image"> <span class="play"><span class="name">
-          <%= f.name %>
-          </span></span> <a href="#"><%=image_tag('movie13.jpg')%></a> </div>
-          <div class="rating">
-            <p><%= t".rating"%></p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
-        </div>
+          <%=  render partial: "films/film" , locals: {film: f} %>
         <% end %>
         <div class="cl">&nbsp;</div>
       </div>

@@ -18,7 +18,8 @@ gem "mysql2"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "dotenv-rails", require: "dotenv/load"
-
+gem "ransack"
+gem "will_paginate", "3.1.6"
 group :development, :test do
   gem "byebug", platform: :mri
 end

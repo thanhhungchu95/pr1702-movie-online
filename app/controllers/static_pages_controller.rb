@@ -10,6 +10,15 @@ class StaticPagesController < ApplicationController
   def new
   end
 
+  def search
+    if params[:q][:name_or_alter_name_cont].blank?
+      film_search = Film.none
+    else
+      film_search = @q.result
+    end
+    @films = film_search.paginate(page: params[:page], per_page: 10)
+  end
+
   private
   def top_comment
     Film.all.includes(:comments).sort_by{|film| film.comments.size}.reverse.take 5
