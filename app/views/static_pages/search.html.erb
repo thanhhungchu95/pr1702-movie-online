@@ -1,7 +1,6 @@
 <div class="box">
   <div class="head">
-    <% if @films %>
-      <h2><%=t".result"%></h2> 
+    <% if @films %> 
       <p class="text-right"><%= @films.count %> ket qua </p>
     
       <% @films.each do |film| %>
