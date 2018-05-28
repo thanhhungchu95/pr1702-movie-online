@@ -7,7 +7,6 @@
         <li><a class="facebook" href="#">facebook</a></li>
         <li><a class="vimeo" href="#">vimeo</a></li>
         <li><a class="rss" href="#">rss</a></li>
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
       </ul>
     </div>
     <div id="navigation">
@@ -16,8 +15,8 @@
         <li><%= link_to (t".new"), new_path%></li>
         <li><%= link_to (t".theaters")  %></li>
         <li><%= link_to (t".coming_soon") %></li>
-        <li><%= link_to (t".contact")%></li>
-        <li><%= link_to (t".advertise")%></li>
+        <li><%= render 'devise/menu/registration_items' %></li>
+        <li><%= render 'devise/menu/login_items' %></li>
       </ul>
     </div>
     <div id="sub-navigation">
