@@ -1,0 +1,20 @@
+<%= form_tag filter_films_path, method: "get" do %>
+  <%= select_tag "category", options_for_select(@category, @selected_params[:category]),
+                                                prompt: "Category" %>
+  <%= select_tag "origin", options_from_collection_for_select(@origins, :id, :name, @selected_params[:origin]),
+                                                prompt: "Origins" %>
+  <%= select_tag "genre", options_from_collection_for_select(@genres, :id, :name, @selected_params[:genre]),
+                                                prompt: "Genres" %>
+  <%= submit_tag "Filter", name: nil %>
+<% end %>
+<div class="box">
+  <div class="head">
+    <% if @films %>
+      <% @films.each do |film| %>
+        <%= render partial: "film", locals: { film: film } %>
+      <% end %>
+      <div class="cl">&nbsp;</div>
+      <%= will_paginate @films %>
+    <%end%>
+  </div>
+</div>
