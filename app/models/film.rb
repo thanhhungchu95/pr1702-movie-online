@@ -12,6 +12,16 @@ class Film < ApplicationRecord
 
   scope :movie, -> { where("num_ep = 1") }
   scope :tv_series, -> { where("num_ep > 1") }
+
+  scope :category, -> (category) {
+    case category
+    when Settings.film.movie
+      movie
+    when Settings.film.tv_series
+      tv_series
+    end
+  }
+
   scope :genre, ->(genre_id) {joins(:genres).where "genres.id IN (?)", genre_id}
   scope :origin, ->(origin_id) {joins(:origins).where "origins.id IN (?)", origin_id}
 

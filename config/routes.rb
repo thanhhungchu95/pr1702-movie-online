@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :films do
     collection do
-      get :movie, :tv_series
+      get :filter
     end
   end
 end
