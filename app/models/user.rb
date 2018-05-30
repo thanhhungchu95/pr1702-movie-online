@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :watched_films, through: :histories, source: :film
   has_many :favourite_films, through: :histories, source: :film
 
+  scope :created_sort, ->{order created: :desc}
+
   def friends
     Relation.where(user1_id: self.id).or(Relation.where(user2_id: self.id))
   end
