@@ -22,7 +22,7 @@
 en:
   layouts:
     header:
-      movie_hunter: "Movie Hunter" 
+      movie_hunter: "Movie Hunter"
       follow: "FOLLOW US ON:"
       twitter: "Twitter"
       facebook: "Facebook"
@@ -39,6 +39,10 @@ en:
       top_rate: "TOP RATED"
       most_commented: "MOST COMMENTED"
       search: "SEARCH"
+      movie: "Movie"
+      tv_series: "TV Series"
+      origin: "Origin"
+      genre: "Genre"
     footer:
       nguon: "Copyright &copy; 2010"
       site_name: "SiteName"

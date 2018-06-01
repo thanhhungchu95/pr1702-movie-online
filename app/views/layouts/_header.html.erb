@@ -1,5 +1,4 @@
-
-  <header id="header">
+<header id="header">
     <h1 id="logo"><%=link_to (t ".movie_hunter"), root_path%></h1>
     <div class="social"> <span><%= t".follow" %></span>
       <ul>
@@ -21,10 +20,37 @@
     </div>
     <div id="sub-navigation">
       <ul>
-        <li><%= link_to (t".show")%></a></li>
-        <li><%= link_to (t".lastest_trailer")%></li>
-        <li><%= link_to (t".top_rate")%></li>
-        <li><%= link_to (t".most_commented")%></li>
+        <li>
+           <%= link_to (t ".movie"), filter_films_path(category: Settings.film.movie) %>
+        </li>
+        <li>
+           <%= link_to (t ".tv_series"), filter_films_path(category: Settings.film.tv_series) %>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= (t ".origin") %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% @origins.each do |origin| %>
+                <li><%= link_to origin.name, filter_films_path(origin: origin.id) %></li>
+              <% end %>
+              <li class="divider"></li>
+            </ul>
+          </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= (t ".genre") %>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% @genres.each do |genre| %>
+              <li><%= link_to genre.name, filter_films_path(genre: genre.id) %></li>
+            <% end %>
+            <li class="divider"></li>
+          </ul>
+        </li>
       </ul>
       <div id="search">
         <%= search_form_for @q, url: search_path do |f| %>

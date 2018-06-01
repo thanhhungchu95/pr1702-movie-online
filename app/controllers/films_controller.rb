@@ -1,6 +1,5 @@
 class FilmsController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :load_origins, :load_genres, only: :filter
 
   def index; end
 
@@ -11,19 +10,13 @@ class FilmsController < ApplicationController
     end
     @category = [["Movie", "1"], ["TV_series", "2"]]
     @selected_params = filter_params
-    @films = filter_films.paginate(page: params[:page], per_page: 10)
+    @films = filter_films.paginate(page: params[:page],
+                                    per_page: Settings.film.per_page)
   end
 
   private
-  def load_origins
-    @origins = Origin.all
-  end
-
-  def load_genres
-    @genres = Genre.all
-  end
-
   def filter_params
     params.permit(:origin, :genre, :category)
   end
+
 end

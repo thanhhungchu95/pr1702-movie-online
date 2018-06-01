@@ -5,22 +5,24 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bootstrap-sass"
 gem "cancancan"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
+gem "dotenv-rails", require: "dotenv/load"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "mysql2"
+gem "omniauth-facebook"
 gem "puma", "~> 3.0"
 gem "rails", "~> 5.0.7"
+gem "ransack"
 gem "sass-rails", "~> 5.0"
-gem "mysql2"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "dotenv-rails", require: "dotenv/load"
-gem "ransack"
 gem "will_paginate", "3.1.6"
-gem "omniauth-facebook"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
