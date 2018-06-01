@@ -1,187 +1,175 @@
+<div id="DIV_2">
+  <div id="DIV_3">
+    <div id="DIV_4">
+      <div id="DIV_5">
+        <h1 id="H1_6">
+          <span id="SPAN_7">
+          <a href="" id="A_8">
+            <%= @film.alter_name %>
+          </a></span>
+          <span id="SPAN_9">
+            <%= @film.name%>
+          </span>
+        </h1>
+        <div id="DIV_11">
+          <div id="DIV_12">
+            <dl id="DL_13">
+                Số người đánh giá:
+              </dt>
+              <dd id="DD_20">
+                <%= @film.ratings.count %>
+              </dd><br id="BR_21" />
+              <dt id="DT_26">
+                Quốc gia:
+              </dt>
+              <dd id="DD_27">
+                <% @film.origins.each do |origin| %>
+                     <%= link_to origin.name , filter_films_path(origin: origin.id), id: "A_28" %>
+                <%end%>
+              </dd><br id="BR_29" />
+              <dt id="DT_30">
+                Năm:
+              </dt>
+              <dd id="DD_31">
+                <a title="Phim mới 2018" href="phim-2018/" id="A_32">
+                  <%= @film.copyright_year %>
+                </a>
+              </dd><br id="BR_33" />
+              <dt id="DT_34">
+                Ngôn ngữ:
+              </dt>
+              <dd id="DD_47">
+                Phụ đề Việt
+              </dd><br id="BR_48" />
+              <dt id="DT_49">
+                Thể loại:
+              </dt>
+              <dd id="DD_50">
+                <% @film.genres.each do |genres| %>
+                <a href="the-loai/phim-kinh-di/" title="Phim kinh dị" id="A_51">
+                  <%= genres.name %> ,
+                </a>
+                <%end%>
+              </dd><br id="BR_54" />
+              <dt id="DT_58">
+                Lượt xem:
+              </dt>
+              <dd id="DD_59">
+                19,152
+              </dd>
+            </dl>
+            <div id="DIV_60">
+            </div>
+          </div>
+          <div id="DIV_61">
+          </div>
+          <div id="DIV_62">
+          </div>
+        </div>
+        <div id="DIV_63">
+          <input id="INPUT_64" type="hidden" />
+          <input id="INPUT_65" type="hidden" value="10" />
+          <p id="P_66">
+            Đánh giá phim <span id="SPAN_67"><%= @film.rate%></span>
+          </p>
+          <div id="DIV_68">
+            <%= image_tag "star.png", alt: "star-1", id: "IMG_69" %>
+            <%= image_tag "star.png", alt: "star-2", id: "IMG_69" %>
+            <%= image_tag "star.png", alt: "star-3", id: "IMG_69" %>
+            <%= image_tag "star.png", alt: "star-4", id: "IMG_69" %>
+            <%= image_tag "star.png", alt: "star-5", id: "IMG_69" %>
+            <input type="hidden" name="score" value="10" id="INPUT_79" />
+          </div><span id="SPAN_80"></span>
+          <!-- <span class="hidden" itemprop="count">2</span> -->
+          <div id="IMG_83" >
+          <%= image_tag(@film.img) %>
+          </div>
+          <div id="IMG_84" >
+          <%= image_tag (@film.img)%>
+          </div>
+          <span id="SPAN_85">
+          <span id="SPAN_86">10
+          </span>
+          </span>
+          <meta content="10" id="META_87" />
+          <meta content="2" id="META_88" />
+          <div id="DIV_89">
+            <span id="SPAN_90"></span>
 
-	<!-- Thông tin phim -->
+          </div>
+        </div>
+      </div>
+      <div id="DIV_92">
+        <div id="DIV_93">
+          <div id="IMG_94">
+          <%= image_tag(@film.img) %>
+          </div>
+          <h2 id="H2_95">
+            Xem phim
+          </h2>
+          <ul id="UL_96">
+            <li id="LI_97">
+              <%= link_to  "Download", "#", id: "A_98" %>
+            </li>
+            <li id="LI_99">
+              <%= link_to  "Report", "#", id: "A_100" %>
+            </li>
+            <li id="LI_101">
+            <%= link_to  "View", view_film_path(@film), id: "A_102" %>
+            </li>
+          </ul>
+        </div>
+        <!-- Bookmark-->
 
-	<div id="DIV_2">
-		<div id="DIV_3">
-			<div id="DIV_4">
-				<div id="DIV_5">
-					<h1 id="H1_6">
-						<span id="SPAN_7">
-						<a href="" id="A_8">
-							<%= @film.alter_name %>
-						</a></span>
-						<span id="SPAN_9">
-							<%= @film.name%>
-						</span>
-					</h1>
-					<div id="DIV_11">
-						<div id="DIV_12">
-							<dl id="DL_13">
-									Số người đánh giá:
-								</dt>
-								<dd id="DD_20">
-									<%= @film.ratings.count %>
-								</dd><br id="BR_21" />
-								<dt id="DT_26">
-									Quốc gia:
-								</dt>
-								<dd id="DD_27">
-									<% @film.origins.each do |origin| %>
-											 <%= link_to origin.name , filter_films_path(origin: origin.id), id: "A_28" %>
-									<%end%>
-								</dd><br id="BR_29" />
-								<dt id="DT_30">
-									Năm:
-								</dt>
-								<dd id="DD_31">
-									<a title="Phim mới 2018" href="phim-2018/" id="A_32">
-										<%= @film.copyright_year %>
-									</a>
-								</dd><br id="BR_33" />
-								<dt id="DT_34">
-									Ngôn ngữ:
-								</dt>
-								<dd id="DD_47">
-									Phụ đề Việt
-								</dd><br id="BR_48" />
-								<dt id="DT_49">
-									Thể loại:
-								</dt>
-								<dd id="DD_50">
-									<% @film.genres.each do |genres| %>
-									<a href="the-loai/phim-kinh-di/" title="Phim kinh dị" id="A_51">
-										<%= genres.name %> ,
-									</a>
-									<%end%>
-								</dd><br id="BR_54" />
-								<dt id="DT_58">
-									Lượt xem:
-								</dt>
-								<dd id="DD_59">
-									19,152
-								</dd>
-							</dl>
-							<div id="DIV_60">
-							</div>
-						</div>
-						<div id="DIV_61">
-						</div>
-						<div id="DIV_62">
-						</div>
-					</div>
-					<div id="DIV_63">
-						<input id="INPUT_64" type="hidden" />
-						<input id="INPUT_65" type="hidden" value="10" />
-						<p id="P_66">
-							Đánh giá phim <span id="SPAN_67"><%= @film.rate%></span>
-						</p>
-						<div id="DIV_68">
-							<%= image_tag "star.png", alt: "star-1", id: "IMG_69" %>
-							<%= image_tag "star.png", alt: "star-2", id: "IMG_69" %>
-							<%= image_tag "star.png", alt: "star-3", id: "IMG_69" %>
-							<%= image_tag "star.png", alt: "star-4", id: "IMG_69" %>
-							<%= image_tag "star.png", alt: "star-5", id: "IMG_69" %>
-							<input type="hidden" name="score" value="10" id="INPUT_79" />
-						</div><span id="SPAN_80"></span>
-						<!-- <span class="hidden" itemprop="count">2</span> -->
-						<div id="IMG_83" >
-						<%= image_tag(@film.img) %>
-						</div>
-						<div id="IMG_84" >
-						<%= image_tag (@film.img)%> 
-						</div>
-						<span id="SPAN_85"> 
-						<span id="SPAN_86">10
-						</span>
-						</span>
-						<meta content="10" id="META_87" />
-						<meta content="2" id="META_88" />
-						<div id="DIV_89">
-							<span id="SPAN_90"></span>
-							
-						</div>
-					</div>
-				</div>
-				<div id="DIV_92">
-					<div id="DIV_93">
-						<div id="IMG_94">
-						<%= image_tag(@film.img) %>
-						</div>
-						<h2 id="H2_95">
-							Xem phim
-						</h2>
-						<ul id="UL_96">
-							<li id="LI_97">
-								<a id="A_98" title="Download phim Sát Nhân Giấu Mặt: Đêm Đẫm Máu - The Strangers: Prey at Night" href="">Download</a>
-							</li>
-							<li id="LI_99">
-								<a id="A_100">Report</a>
-							</li>
-							<li id="LI_101">
-								<a id="A_102" title="Xem phim Sát Nhân Giấu Mặt: Đêm Đẫm Máu - The Strangers: Prey at Night" href="">Xem phim</a>
-							</li>
-						</ul>
-					</div>
-					<!-- Bookmark-->
+        <div id="DIV_103">
+          <div id="DIV_104">
+            <span id="SPAN_105"></span><span id="SPAN_106"></span>
+          </div>
+        </div>
+        <!-- // Bookmark-->
 
-					<div id="DIV_103">
-						<div id="DIV_104">
-							<span id="SPAN_105"></span><span id="SPAN_106"></span>
-						</div>
-					</div>
-					<!-- // Bookmark-->
+        <div id="DIV_107">
+          <div id="DIV_108">
+            <button type="button" id="BUTTON_109">
+              <span id="SPAN_110"></span>
+            </button>
+            <ul id="UL_111">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="DIV_112">
+    <!-- uniAd Code zone 118-Dưới nút xem phim/phimmoi.net -->
 
-					<div id="DIV_107">
-						<div id="DIV_108">
-							<button type="button" id="BUTTON_109">
-								<span id="SPAN_110"></span>
-							</button>
-							<ul id="UL_111">
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="DIV_112">
-			<!-- uniAd Code zone 118-Dưới nút xem phim/phimmoi.net -->
+    <!-- uniAd Code zone 118-Dưới nút xem phim/phimmoi.net -->
 
-			<script type="text/javascript" id="SCRIPT_113"><!--
-try{
-uniAd.displayZone(118);//Dưới nút xem phim
-}catch(err){
-console.error('uniAd-zone 118 (Dưới nút xem phim): '+err.message);
-console.error(err.stack);
-}
--->
-			</script>
-			<!-- uniAd Code zone 118-Dưới nút xem phim/phimmoi.net -->
+  </div>
 
-		</div>
-		
-		<article id="ARTICLE_189">
-				<h2 id="H2_190">
-					Nội dung phim
-				</h2>
-				<div id="DIV_191">
-					<span id="SPAN_192"></span>
-					
-				</div>
-				<div id="DIV_194">
-					<p id="P_195">
-						<%= @film.description %>
-					</p>
-				</div>
-			</article>
-	</div>
-	<!-- / Thông tin phim -->
+  <article id="ARTICLE_189">
+      <h2 id="H2_190">
+        Nội dung phim
+      </h2>
+      <div id="DIV_191">
+        <span id="SPAN_192"></span>
 
-	<div id="DIV_203">
-		</div>
+      </div>
+      <div id="DIV_194">
+        <p id="P_195">
+          <%= @film.description %>
+        </p>
+      </div>
+    </article>
+</div>
+<!-- / Thông tin phim -->
+
+<div id="DIV_203">
+  </div>
 </div>
 <div id="DIV_204">
-	<h4 id="H4_205">
-		Bình luận về phim
-	</h4>
-	<div id="DIV_206">
-	</div>
+<h4 id="H4_205">
+  Bình luận về phim
+</h4>
+<div id="DIV_206">
+</div>

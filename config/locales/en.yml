@@ -59,3 +59,7 @@ en:
       top_rated: "TOP RATED"
     search:
       resurl: "RESULT"
+  films:
+    view:
+      link_not_exist: "Link not exist"
+      list_of_episodes: "List of episode"
