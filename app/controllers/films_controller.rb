@@ -14,6 +14,11 @@ class FilmsController < ApplicationController
                                     per_page: Settings.film.per_page)
   end
 
+  def show
+    @film = Film.find_by id: params[:id]
+    redirect_to root_url unless @film
+  end
+
   private
   def filter_params
     params.permit(:origin, :genre, :category)
