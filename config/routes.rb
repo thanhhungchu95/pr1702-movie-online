@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get :view, on: :member
     collection do
       get :filter
+      get :top_movie
     end
   end
 end
