@@ -29,6 +29,10 @@ class Film < ApplicationRecord
   	count_cmt = comments.count
   end
 
+   def movie?
+    num_ep == Settings.film.movie.to_i
+  end
+
   def rate
   	rating_star = ratings.pluck(:star)
   	rating_star.any? ? (rating_star.sum.to_f / rating_star.count) : 0
