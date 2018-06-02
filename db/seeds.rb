@@ -1,4 +1,3 @@
-
 10.times do |n|
   User.create(
     email: "user#{n+1}@gmail.com",
@@ -6,4 +5,3 @@
     confirmed_at: Time.now,
     confirmation_token: nil)
 end
-

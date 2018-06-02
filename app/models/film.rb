@@ -25,6 +25,16 @@ class Film < ApplicationRecord
   scope :genre, ->(genre_id) {joins(:genres).where "genres.id IN (?)", genre_id}
   scope :origin, ->(origin_id) {joins(:origins).where "origins.id IN (?)", origin_id}
 
+  def self.update_comment_and_rating!
+    self.find_in_batches do |films|
+      sleep(5)
+      films.each {
+        |film| film.update_attributes(comment_count: film.comment,
+                                                          rate_point: film.rate)
+      }
+    end
+  end
+
   def comment
   	count_cmt = comments.count
   end

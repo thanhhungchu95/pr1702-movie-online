@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523135520) do
+ActiveRecord::Schema.define(version: 20180604114843) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20180523135520) do
     t.integer  "num_view"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "comment_count"
+    t.float    "rate_point",     limit: 24
   end
 
   create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
