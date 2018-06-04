@@ -6,7 +6,7 @@ class FilmsController < ApplicationController
   def filter
     filter_films = Film.all
     filter_params.each do |key, val|
-      filter_films.merge!(filter_films.send(key, val)) if Film.respond_to? key && val.present?
+      filter_films.merge!(filter_films.send(key, val)) if (Film.respond_to? key) && (val.present?)
     end
     @category = [["Movie", "1"], ["TV_series", "2"]]
     @selected_params = filter_params
