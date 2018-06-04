@@ -14,6 +14,11 @@ class FilmsController < ApplicationController
                                     per_page: Settings.film.per_page)
   end
 
+  def top_movie
+    @top_movies = Film.top_movie_by(params[:type]).paginate(page: params[:page], per_page: 10)
+    # @top_movies = top_movie.
+  end
+
   def show
     @film = Film.find_by id: params[:id]
     redirect_to root_url unless @film

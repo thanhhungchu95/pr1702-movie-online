@@ -22,6 +22,23 @@ class Film < ApplicationRecord
     end
   }
 
+  scope :top_view, ->{order("num_view DESC")}
+  scope :top_updated, ->{order("created_at DESC")}
+  scope :top_comment, ->{order("comment_count DESC")}
+  scope :top_rate, ->{order("rate_point DESC")}
+  scope :top_movie_by, ->(type){
+    case type
+    when "top_view"
+      top_view
+    when "lastest_trailer"
+      top_updated
+    when "top_rated"
+      top_rate
+    when "top_comment"
+      top_comment
+    end  
+  }
+
   scope :genre, ->(genre_id) {joins(:genres).where "genres.id IN (?)", genre_id}
   scope :origin, ->(origin_id) {joins(:origins).where "origins.id IN (?)", origin_id}
 

@@ -51,7 +51,7 @@ en:
       link_theme: "ChocoTemplates.com"
   static_pages:
     home:
-      lastest_trailer: "LASTEST TRAILERS"
+      lastest_trailer: "NEWEST"
       rating: "RATING"
       see_all: "See All"
       top_view: "TOP VIEW"
