@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604114843) do
+ActiveRecord::Schema.define(version: 20180606155516) do
+
+  create_table "average_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "avg",           limit: 24, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -102,15 +111,35 @@ ActiveRecord::Schema.define(version: 20180604114843) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "film_id"
-    t.integer  "star"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["film_id", "user_id"], name: "index_ratings_on_film_id_and_user_id", unique: true, using: :btree
-    t.index ["film_id"], name: "index_ratings_on_film_id", using: :btree
-    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  create_table "overall_averages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "overall_avg",   limit: 24, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "stars",         limit: 24, null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
+    t.index ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+  end
+
+  create_table "rating_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "cacheable_type"
+    t.integer  "cacheable_id"
+    t.float    "avg",            limit: 24, null: false
+    t.integer  "qty",                       null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -161,7 +190,5 @@ ActiveRecord::Schema.define(version: 20180604114843) do
   add_foreign_key "histories", "films"
   add_foreign_key "histories", "users"
   add_foreign_key "link_episodes", "episodes"
-  add_foreign_key "ratings", "films"
-  add_foreign_key "ratings", "users"
   add_foreign_key "shares", "films"
 end

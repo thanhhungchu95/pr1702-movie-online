@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   root 'static_pages#home'
   get '/search', to: 'static_pages#search'
   get'/new', to: 'static_pages#new'
@@ -10,9 +11,6 @@ Rails.application.routes.draw do
     collection do
       get :filter
       get :top_movie
-
-      get :movie, :tv_series
-
     end
   end
 end

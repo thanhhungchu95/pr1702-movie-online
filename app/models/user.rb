@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :confirmable,:registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers:%i[facebook]
 
+  ratyrate_rater
+
   has_many :comments
   has_many :ratings
   has_many :histories

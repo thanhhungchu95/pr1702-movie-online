@@ -22,6 +22,7 @@ class FilmsController < ApplicationController
   def show
     @film = Film.find_by id: params[:id]
     redirect_to root_url unless @film
+    @avg_rating = @film.rate_cal
   end
 
   def view
