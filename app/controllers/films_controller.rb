@@ -23,6 +23,7 @@ class FilmsController < ApplicationController
     @film = Film.find_by id: params[:id]
     redirect_to root_url unless @film
     @avg_rating = @film.rate_cal
+    @comments = @film.comments.order("created_at DESC").paginate(page: params[:page], per_page: 10)
   end
 
   def view

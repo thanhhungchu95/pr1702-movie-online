@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606155516) do
+ActiveRecord::Schema.define(version: 20180608133328) do
 
   create_table "average_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "rater_id"
@@ -142,6 +142,17 @@ ActiveRecord::Schema.define(version: 20180606155516) do
     t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
   end
 
+  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "film_id"
+    t.integer  "star"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["film_id", "user_id"], name: "index_ratings_on_film_id_and_user_id", unique: true, using: :btree
+    t.index ["film_id"], name: "index_ratings_on_film_id", using: :btree
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  end
+
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user1_id"
     t.integer  "user2_id"
@@ -174,6 +185,7 @@ ActiveRecord::Schema.define(version: 20180606155516) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -190,5 +202,7 @@ ActiveRecord::Schema.define(version: 20180606155516) do
   add_foreign_key "histories", "films"
   add_foreign_key "histories", "users"
   add_foreign_key "link_episodes", "episodes"
+  add_foreign_key "ratings", "films"
+  add_foreign_key "ratings", "users"
   add_foreign_key "shares", "films"
 end

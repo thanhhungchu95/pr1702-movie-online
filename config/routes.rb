@@ -12,5 +12,6 @@ Rails.application.routes.draw do
       get :filter
       get :top_movie
     end
+    resources :comments, only: [:create, :destroy, :edit]
   end
 end

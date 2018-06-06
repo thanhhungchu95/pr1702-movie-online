@@ -1,0 +1,6 @@
+<%= form_for (Comment.new), url: film_comments_path(@film) do |f| %>
+  <%= f.text_area :content,:placeholder => "binh luan" %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :film_id %>
+  <%= f.submit "Gui" %>
+<% end %>

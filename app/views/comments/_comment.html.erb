@@ -1,0 +1,31 @@
+<div id="DIV_1img">
+  <a href="https://www.facebook.com/profile.php?id=100009729432814" id="A_2img">
+  <div id="IMG_3img" >
+    <%= gravatar_for comment.user, size: 30 %>
+  </div>
+  </a>
+</div>
+<div id="DIV_1cmt">
+  <div id="DIV_2cmt">
+    <div id="DIV_3cmt">
+      <div id="DIV_4cmt">
+      </div>
+    </div>
+    <div id="DIV_5cmt">
+      <div id="DIV_6cmt">
+        <span id="SPAN_7cmt">
+        <%= link_to (comment.user.name), user_path(comment.user) %>
+        </span>
+        <div id="DIV_12cmt">
+          <div id="DIV_13cmt">
+            <span id="SPAN_14cmt"><span id="SPAN_15cmt"><span id="SPAN_16cmt"><%= comment.content %>
+            </span></span></span><span id="SPAN_17cmt"></span></br>
+            <span class="timestamp">
+               Posted <%= time_ago_in_words(comment.created_at) %> ago.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
