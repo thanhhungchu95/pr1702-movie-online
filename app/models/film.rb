@@ -1,4 +1,5 @@
 class Film < ApplicationRecord
+  ratyrate_rateable :rate
   has_many :episodes
 
   has_many :film_genres
@@ -36,7 +37,7 @@ class Film < ApplicationRecord
       top_rate
     when "top_comment"
       top_comment
-    end  
+    end
   }
 
   scope :genre, ->(genre_id) {joins(:genres).where "genres.id IN (?)", genre_id}
@@ -45,23 +46,21 @@ class Film < ApplicationRecord
   def self.update_comment_and_rating!
     self.find_in_batches do |films|
       sleep(5)
-      films.each {
-        |film| film.update_attributes(comment_count: film.comment,
-                                                          rate_point: film.rate)
-      }
+      films.each do |film|
+        film.update_attributes(comment_count: film.comment_cal, rate_point: film.rate_cal)
+      end
     end
   end
 
-  def comment
-  	count_cmt = comments.count
+  def comment_cal
+  	comments.count
   end
 
    def movie?
     num_ep == Settings.film.movie.to_i
   end
 
-  def rate
-  	rating_star = ratings.pluck(:star)
-  	rating_star.any? ? (rating_star.sum.to_f / rating_star.count) : 0
+  def rate_cal
+  	average(:rate).present? ? average(:rate).avg : 0
   end
 end

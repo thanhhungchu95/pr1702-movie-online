@@ -16,9 +16,6 @@
             <dl id="DL_13">
                 Số người đánh giá:
               </dt>
-              <dd id="DD_20">
-                <%= @film.ratings.count %>
-              </dd><br id="BR_21" />
               <dt id="DT_26">
                 Quốc gia:
               </dt>
@@ -51,6 +48,7 @@
                 </a>
                 <%end%>
               </dd><br id="BR_54" />
+              <div class='star-rating' data-score=<%= @avg_rating %>></div>
               <dt id="DT_58">
                 Lượt xem:
               </dt>
@@ -67,20 +65,8 @@
           </div>
         </div>
         <div id="DIV_63">
-          <input id="INPUT_64" type="hidden" />
-          <input id="INPUT_65" type="hidden" value="10" />
-          <p id="P_66">
-            Đánh giá phim <span id="SPAN_67"><%= @film.rate%></span>
-          </p>
-          <div id="DIV_68">
-            <%= image_tag "star.png", alt: "star-1", id: "IMG_69" %>
-            <%= image_tag "star.png", alt: "star-2", id: "IMG_69" %>
-            <%= image_tag "star.png", alt: "star-3", id: "IMG_69" %>
-            <%= image_tag "star.png", alt: "star-4", id: "IMG_69" %>
-            <%= image_tag "star.png", alt: "star-5", id: "IMG_69" %>
-            <input type="hidden" name="score" value="10" id="INPUT_79" />
-          </div><span id="SPAN_80"></span>
-          <!-- <span class="hidden" itemprop="count">2</span> -->
+          Rate this film  : <%= rating_for @film, 'rate' %>
+          <span id="SPAN_80"></span>
           <div id="IMG_83" >
           <%= image_tag(@film.img) %>
           </div>
@@ -173,3 +159,5 @@
 </h4>
 <div id="DIV_206">
 </div>
+
+<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>
