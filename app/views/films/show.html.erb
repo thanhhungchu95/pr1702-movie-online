@@ -1,3 +1,4 @@
+<div id="DIV_1">
 <div id="DIV_2">
   <div id="DIV_3">
     <div id="DIV_4">
@@ -150,14 +151,21 @@
 </div>
 <!-- / Thông tin phim -->
 
-<div id="DIV_203">
+<div id="DIV_204">
+  <h4 id="H4_205">
+    Bình luận về phim
+  </h4>
+  <div id="DIV_206">
+    <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>
+    <% if user_signed_in? %>
+    <div>
+      <%= render partial:"comments/form_cmt" %>
+    </div>
+    <%end%>
+    <div>
+      <%= render @comments %>
+      <%= will_paginate @comments %>
+    </div>
   </div>
 </div>
-<div id="DIV_204">
-<h4 id="H4_205">
-  Bình luận về phim
-</h4>
-<div id="DIV_206">
-</div>
 
-<%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>
